@@ -1,7 +1,12 @@
 /**
 * 
 */
+<<<<<<< HEAD
 var albumUrl = "http://api.imgur.com/2/album/UcUlZ.json"
+=======
+var id = "UcUlZ";
+var albumUrl = "http://api.imgur.com/2/album/"+id+".json";
+>>>>>>> master
 $(document).ready(function(){
 	$.getJSON(albumUrl,
 		function(data){
