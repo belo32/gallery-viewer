@@ -1,6 +1,7 @@
 /**
 * 
 */
+$.support.cors = true;
 var id = "qOlBw"; /* the album id of the imgur*/
 var albumUrl = "http://api.imgur.com/2/album/"+id+".json";
 $(document).ready(function(){ 
