@@ -8,18 +8,18 @@ $(document).ready(function(){
 		function(data){
 			var images = data.album.images;
 			$.each(images, function(i,item){
-				var div = $("<a></a>").attr({
+				var div = $("\<a\>\<\/a\>").attr({
 					id: "gallery-item",
 					href: item.links.large_thumbnail,
 					sytle: "background-image:url("+item.links.large_thumbnail+")"
 					/*class: "grid_4"*/
 				});
 				div.addClass("grid_4");
-				$("<img/>").attr("src",item.links.large_thumbnail).appendTo(div);
-				div.appendTo("#dynamic-gallery");
+				$("\<img\/\>").attr("src",item.links.large_thumbnail).appendTo(div);
+				div.appendTo("\#dynamic-gallery");
 			});	
 			$(function(){
-     $('#dynamic-gallery a').touchTouch();
+     $('\#dynamic-gallery a').touchTouch();
 
 });		
 		});
