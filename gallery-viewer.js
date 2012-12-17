@@ -11,7 +11,7 @@ $(document).ready(function(){
 				var div = $("<a></a>").attr({
 					id: "gallery-item",
 					href: item.links.large_thumbnail,
-					sytle: "background-image:url("+item.links.large_thumbnail+")",
+					sytle: "background-image:url("+item.links.large_thumbnail+")"
 					/*class: "grid_4"*/
 				});
 				div.addClass("grid_4");
