@@ -5,7 +5,7 @@
 var id = "qOlBw";
 var albumUrl = "http://api.imgur.com/2/album/"+id+".json";
 var albumUrl2 =" https://api.imgur.com/3/album/"+id+"/images";
-var client_id="client_id: 577b889f51c4ccc";
+var client_id="client_id: 54a3f7332a8786f";
 $(document).ready(function(){
 	//getJSON(albumUrl2);
 	getAjaxJSON(albumUrl2);
