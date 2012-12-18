@@ -1,7 +1,7 @@
 /**
 * 
 */
-
+$.support.cors = true;
 var id = "qOlBw";
 var albumUrl = "http://api.imgur.com/2/album/"+id+".json";
 var albumUrl2 =" https://api.imgur.com/3/album/"+id+"/images";
