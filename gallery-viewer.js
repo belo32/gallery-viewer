@@ -27,7 +27,7 @@ function getJSON(albumUrl){
 
 function getAjaxJSON(albumUrl){
 	$.ajax({
-		type: "POST",
+		type: "GET",
     url: albumUrl,
     contentType: "application/json; charset=utf-8",
     dataType: "json",
