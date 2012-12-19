@@ -4,11 +4,12 @@
 
 var id = "qOlBw";
 var albumUrl = "http://api.imgur.com/2/album/"+id+".json";
-var albumUrl2 =" https://api.imgur.com/3/album/"+id+"/images";
-var client_id="Client-ID 54a3f7332a8786f";
+var albumUrl2 =" https://api.imgur.com/3/album/"+id+"/images?callback=0";
+var auth="Client-ID 54a3f7332a8786f";
+var facebook= "https://graph.facebook.com/233975233402550/photos";
 $(document).ready(function(){
 	//getJSON(albumUrl2);
-	getAjaxJSON(albumUrl2);
+	getAjaxJSON(facebook);
 });
 
 
@@ -28,10 +29,11 @@ function getJSON(albumUrl){
 function getAjaxJSON(albumUrl){
 $.ajax({
     url: albumUrl,
-    dataType: "jsonp",
-     beforeSend: function ( xhr ) {
-    xhr.setRequestHeader('Authorization', client_id);
-  },
+    
+    
+    
+
+
     success: function(json) {
         $("#dynamic-gallery").html("json.length=" + json.length);
         
