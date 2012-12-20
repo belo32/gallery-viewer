@@ -1,32 +1,45 @@
 /**
-* 
+* JQuery script for loading images from the facebook page album providing the album id as follows:
+* <div class="fb-album" data-id="{ALBUM_ID}"></div>
+* images will be added in the following format <div class="fb-image"><img src="{image_source}"/>
+* Author: Bilal Al-Hajjar
 */
-
+var facebookUrl = "https://graph.facebook.com/";
+var photosExt = "/photos?fields=source";
 $.support.cors = true;
-var id = "qOlBw"; /* the album id of the imgur*/
-var albumUrl = "http://api.imgur.com/2/album/"+id+".json";
-$(document).ready(function(){ 
+$(document).ready(function(){
+	var id =$('.fb-album').attr('data-id');
+	var albumUrl = facebookUrl + id + photosExt 
+	getAjaxJSON(albumUrl);
 
-	$.getJSON(albumUrl,
-		function(data){
-			$("\#dynamic-gallery").append("test"+data.images);
-			
-			$.each(images, function(i,item){
+});
 
-				var div = $("\<a\>\<\/a\>").attr({
-					id: "gallery-item",
-					href: item.links.large_thumbnail,
-					sytle: "background-image:url("+item.links.large_thumbnail+")"
-					/*class: "grid_4"*/
-				});
-				div.addClass("grid_4");
-				$("\<img\/\>").attr("src",item.links.large_thumbnail).appendTo(div);
-				div.appendTo("\#dynamic-gallery");
-			});	
-			$(function(){
-     $('\#dynamic-gallery a').touchTouch();
+function getAjaxJSON(albumUrl){
+$.ajax({
+    url: albumUrl,
+    dataType: "json",
+    type: "GET",
+    success: function(data) {
+        
+        var dataArray = data.data;
+        $.each(dataArray, function(i,item){
+        	console.log(item.source);
+        	var div = $("<div></div>").attr("class","fb-image");
+        	$("<img/>").attr("src",item.source).appendTo(div);
+				div.appendTo(".fb-album");
+        });
+        console.log(dataArray);
+        
+    },
+    error: function (xhr, textStatus, errorThrown) {
+        console.log("error "+ textStatus);
+        
+    },
+    complete: function(data){
+    	console.log("complete");
+    }
+	});
 
-});		
-
+}
 
 
