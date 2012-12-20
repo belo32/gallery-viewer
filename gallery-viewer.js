@@ -34,6 +34,7 @@ function getAjaxJSON(albumUrl){
 $.ajax({
     url: albumUrl,
     dataType: "json",
+    type: "GET",
     success: function(json) {
         $("#dynamic-gallery").append("success "+json);
         
