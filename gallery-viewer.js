@@ -9,17 +9,18 @@ var auth="Client-ID 54a3f7332a8786f";
 var facebook= "https://graph.facebook.com/233975233402550/photos";
 $.support.cors = true;
 $(document).ready(function(){
-	$("#dynamic-gallery").html("launch");
+	$("#dynamic-gallery").append("document ready");
 	//getJSON(albumUrl2);
 	getAjaxJSON(facebook);
+
 });
 
 
 function getJSON(albumUrl){
-	$("#dynamic-gallery").html("launch");
+	$("#dynamic-gallery").append("getJson");
 	$.getJSON(albumUrl,
 		function(data){
-			$("\#dynamic-gallery").append("test"+data.images);
+			$("\#dynamic-gallery").append("data " +data);
 			/*var images = data.album.images;
 			$.each(images, function(i,item){
 				var div = $("<div></div>").attr("id","gallery-item");
@@ -32,12 +33,17 @@ function getJSON(albumUrl){
 function getAjaxJSON(albumUrl){
 $.ajax({
     url: albumUrl,
+    dataType: "json",
     success: function(json) {
-        $("#dynamic-gallery").html("json.length=" + json.length);
+        $("#dynamic-gallery").append("success "+json);
         
     },
     error: function (xhr, textStatus, errorThrown) {
-        $("#dynamic-gallery").html(xhr.responseText);
+        $("#dynamic-gallery").append(" error " + textStatus);
+        
+    },
+    complete: function(data){
+    	$("#dynamic-gallery").append(" complete "+data);
     }
 	});
 
