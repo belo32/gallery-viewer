@@ -14,6 +14,7 @@ $(document).ready(function(){
 
 
 function getJSON(albumUrl){
+	$("#dynamic-gallery").html("launch");
 	$.getJSON(albumUrl,
 		function(data){
 			$("\#dynamic-gallery").append("test"+data.images);
