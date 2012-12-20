@@ -7,6 +7,7 @@ var albumUrl = "http://api.imgur.com/2/album/"+id+".json";
 var albumUrl2 =" https://api.imgur.com/3/album/"+id+"/images?callback=0";
 var auth="Client-ID 54a3f7332a8786f";
 var facebook= "https://graph.facebook.com/233975233402550/photos";
+$.support.cors = true;
 $(document).ready(function(){
 	$("#dynamic-gallery").html("launch");
 	//getJSON(albumUrl2);
