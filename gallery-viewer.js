@@ -12,6 +12,8 @@ $(document).ready(function(){
 	var albumUrl = facebookUrl + id + photosExt 
 	getAjaxJSON(albumUrl);
 
+
+
 });
 
 function getAjaxJSON(albumUrl){
@@ -24,8 +26,16 @@ $.ajax({
         var dataArray = data.data;
         $.each(dataArray, function(i,item){
         	console.log(item.source);
-        	var div = $("<div></div>").attr("class","fb-image");
-        	$("<img/>").attr("src",item.source).appendTo(div);
+        	var div = $("<div></div>").attr({
+                class:"fb-image"  
+            });
+
+            var ref =$("<a></a>").attr({
+                
+                href: item.source,
+               
+                }).appendTo(div);
+        	$("<img/>").attr("src",item.source).appendTo(ref);
 				div.appendTo(".fb-album");
         });
         console.log(dataArray);
